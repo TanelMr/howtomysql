@@ -9,9 +9,9 @@ var con = mysql.createConnection({
 
 con.connect(function(err) {
     if (err) throw err;
-    var sql = "update customers set address = 'Vaba 30' where name = 'Tanel'";
+    var sql = "select * from customers limit 2";
     con.query(sql, function (err, result, fields) {
         if (err) throw err;
-        console.log('Records updated:' + result.affectedRows);
+        console.log(result);
     });
 });

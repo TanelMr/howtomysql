@@ -9,8 +9,8 @@ var con = mysql.createConnection({
 
 con.connect(function(err) {
     if (err) throw err;
-    con.query("SELECT name FROM customers", function (err, result, fields) {
+    con.query("SELECT * FROM customers WHERE address = 'Kopli 1'", function (err, result, fields) {
         if (err) throw err;
-        console.log(fields);
+        console.log(result);
     });
 });

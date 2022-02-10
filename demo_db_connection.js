@@ -9,16 +9,8 @@ var con = mysql.createConnection({
 
 con.connect(function(err) {
     if (err) throw err;
-    console.log("Connected!");
-    var sql = "INSERT INTO customers (name, address) VALUES ?";
-    var values = [
-        ['Siim', 'Peetri 3'],
-        ['Kevin', 'Salme 4'],
-        ['Sander', 'Nõgiaru 3'],
-        ['Karl', 'Näituse 5']
-    ];
-    con.query(sql, [values], function (err, result) {
+    con.query("SELECT * FROM customers", function (err, result, fields) {
         if (err) throw err;
-        console.log("Number of records inserted:" + result.affectedRows);
+        console.log(result);
     });
 });

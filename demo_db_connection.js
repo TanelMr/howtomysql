@@ -9,9 +9,9 @@ var con = mysql.createConnection({
 
 con.connect(function(err) {
     if (err) throw err;
-    var sql = "SELECT * FROM customers order by Name";
+    var sql = "delete from customers where name = 'Sander'";
     con.query(sql, function (err, result, fields) {
         if (err) throw err;
-        console.log(result);
+        console.log('Records deleted:' + result.affectedRows);
     });
 });
